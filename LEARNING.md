@@ -27,3 +27,10 @@
 - Series = one column with labels. DataFrame = full table
 - dtype: `int64` whole numbers, `float64` decimals, `object` text or mixed, `bool` True/False
 - `.value_counts()` returns a Series. `.reset_index()` turns it into a table
+- Wide vs long format. Long = one row per observation, preferred by databases and Power BI
+- `for` loops, including a loop inside a loop
+- f-strings: `f"{name}_count"` puts variables inside text
+- `list.append()` and `pd.concat()` to stack tables
+- `pd.to_numeric(errors="coerce")` turns bad values into NaN instead of crashing
+- `(cond1) & (cond2)` for two conditions, brackets required
+- Importing a file runs all its code, including prints

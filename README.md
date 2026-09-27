@@ -16,6 +16,7 @@ peek2.py         inspect the header layout
 clean_one.py     clean one quarter
 practice.py      exploration of 1-bed flat availability
 NOTES.md         findings, data quirks and decisions
+tidy_one.py      reshape one quarter into long format
 ```
 
 ## Data source
