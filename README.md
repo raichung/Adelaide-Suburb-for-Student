@@ -2,7 +2,7 @@
 
 Analysis of SA Government rental bond data to find which Adelaide suburbs give students the best rental value.
 
-**Status:** in progress (data cleaning stage)
+**Status:** in progress (all 8 quarters cleaned, SQL analysis next)
 
 ## Tools
 Python (pandas), PostgreSQL, Power BI
@@ -17,6 +17,9 @@ clean_one.py     clean one quarter
 practice.py      exploration of 1-bed flat availability
 NOTES.md         findings, data quirks and decisions
 tidy_one.py      reshape one quarter into long format
+find_header.py   find the header row in each quarter
+clean.py         clean all quarters into one long table
+data/clean/rent_long.csv   combined clean data
 ```
 
 ## Data source

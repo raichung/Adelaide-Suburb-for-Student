@@ -10,10 +10,14 @@ Data: Apr-Jun 2026 quarter
 - Adelaide CBD total median ($520) is lower than its 2-bed flat median ($650) because small flats dominate the mix. Total median can mislead when comparing suburbs
 - Adelaide CBD: 815 one-bed flat leases, median $500. Explains why its total median is low
 - Bowden: 25 one-bed flat leases, median $374.50. Reliable and much cheaper than the CBD nearby
+- Adelaide CBD 1-bed flat leases peak in Sep and Mar quarters (1,500 to 2,400) and drop in Dec and Jun (540 to 815). Likely matches uni semester starts
+- CBD 1-bed rent rose about 5 to 17% year on year, depending on quarter
 
 ## Data quirks
 - Each quarter is a separate Excel file with 4 sheets: Suburb, PC, Region, SLA. Only Suburb is used
-- Rows 0 to 13 are titles and notes. Header is split across rows 14 to 16 (dwelling type, bedrooms, Count/Median). Data starts at row 18
+- Rows above the header are titles and notes. Header is split across 3 rows (dwelling type, bedrooms, Count/Median)
+- Header row moves between quarters: row 12 in older files, row 14 in 2026-06. The code finds it by searching for "Flats/Units"
+- Excel creates hidden lock files (`~$...xlsx`) when a file is open. The code skips them
 - `*` in a count column means 1 to 5 leases, hidden for privacy. The median is still shown
 - "Metro" and "Country" section rows, plus "Metro Total", "Country Total" and "Grand Total" rows, are mixed in with suburbs
 - Blank median (NaN) means no new leases of that type, not $0 rent
@@ -27,7 +31,10 @@ Data: Apr-Jun 2026 quarter
 - Reshaped wide (27 columns) to long format: one row per suburb + dwelling + bedrooms
 - Dropped "other" dwelling and "total" columns. Other is rare, and total median mixes property types
 - Created `low_sample` flag before converting counts to numbers, so the `*` information is kept
+- Wrapped cleaning in a function and ran it over all 8 quarters. Output saved to `data/clean/rent_long.csv`
+- Find the header row by searching, not by fixed row number, so layout changes don't break the script
 
 ## Open questions
 - Is 8 quarters enough to make 1-bed flat prices reliable?
 - What minimum number of leases should a suburb need to appear in rankings?
+- Why are CBD 1-bed medians lower in busy quarters?

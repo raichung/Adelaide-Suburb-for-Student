@@ -34,3 +34,13 @@
 - `pd.to_numeric(errors="coerce")` turns bad values into NaN instead of crashing
 - `(cond1) & (cond2)` for two conditions, brackets required
 - Importing a file runs all its code, including prints
+- Functions: `def`, inputs, `return`
+- `assert condition, "message"` shows which file failed
+- `Path.stem`, `.name`, `.suffix`
+- `if __name__ == "__main__":` stops code running on import
+- `to_csv(path, index=False)`
+- Read tracebacks bottom up: last line is what, lines above are where
+- Find a row by value: `df.index[df[col] == value][0]`
+- List comprehension: `[x for x in items if condition]`
+- Never hardcode positions in messy data. Search for them
+- Compare same quarter year on year to avoid seasonal bias
