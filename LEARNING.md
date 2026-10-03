@@ -44,3 +44,14 @@
 - List comprehension: `[x for x in items if condition]`
 - Never hardcode positions in messy data. Search for them
 - Compare same quarter year on year to avoid seasonal bias
+
+## 2026-10-03
+- Installed Postgres.app, created a database with `createdb`
+- `Int64` in pandas = whole numbers that allow blanks
+- `CREATE TABLE` with types: TEXT, INTEGER, NUMERIC, BOOLEAN
+- `DROP TABLE IF EXISTS` makes a script safe to re-run
+- `\copy table FROM 'file.csv' WITH (FORMAT csv, HEADER true)` loads a CSV
+- NULL is SQL's blank
+- SELECT, FROM, WHERE, GROUP BY, ORDER BY, LIMIT
+- `COUNT(*)` and `AS` to name results
+- Text in SQL uses single quotes

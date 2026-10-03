@@ -22,8 +22,7 @@ COLUMNS = [
 def clean_quarter(path):
     raw = pd.read_excel(path, sheet_name="Suburb", header=None)
 
-    # stop if the layout changes, and say which file
-        # header moved between quarters, so find it instead of hardcoding
+    # header moved between quarters, so find it instead of hardcoding
     h = raw.index[raw[1] == "Flats/Units"][0]
 
     assert raw.iloc[h, 11] == "Houses", path.name
@@ -50,7 +49,8 @@ def clean_quarter(path):
 
     # flag before converting, or we lose the *
     tidy["low_sample"] = tidy["leases"] == "*"
-    tidy["leases"] = pd.to_numeric(tidy["leases"], errors="coerce")
+    # Int64 = whole numbers that allow blanks
+    tidy["leases"] = pd.to_numeric(tidy["leases"], errors="coerce").astype("Int64")
     tidy["median_rent"] = pd.to_numeric(tidy["median_rent"], errors="coerce")
     tidy = tidy.dropna(subset=["median_rent"])
 

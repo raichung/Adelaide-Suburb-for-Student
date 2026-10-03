@@ -33,6 +33,9 @@ Data: Apr-Jun 2026 quarter
 - Created `low_sample` flag before converting counts to numbers, so the `*` information is kept
 - Wrapped cleaning in a function and ran it over all 8 quarters. Output saved to `data/clean/rent_long.csv`
 - Find the header row by searching, not by fixed row number, so layout changes don't break the script
+- Leases stored as pandas `Int64` (whole numbers that allow blanks) so PostgreSQL accepts them as INTEGER
+- Loaded clean CSV into PostgreSQL table `rent` (database `adelaide_rent`)
+- `median_rent` stored as NUMERIC(7, 2) for exact money values
 
 ## Open questions
 - Is 8 quarters enough to make 1-bed flat prices reliable?
