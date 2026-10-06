@@ -1,17 +1,22 @@
 # Project notes
 
 ## Findings
-Data: Apr-Jun 2026 quarter
 
+### Last year rankings (Jul 2025 to Jun 2026, suburbs with 20+ leases)
+- Cheapest reliable Metro 1-bed flat: Prospect ($366, 63 leases). Tonsley is cheaper ($286) but only 21 leases
+- Adelaide CBD 1-bed: $438 over the year (4,483 leases), cheaper than Bowden ($450). One quarter alone suggested the opposite
+- Cheapest Metro 3-bed houses are all in the Elizabeth area ($462 to $510), about $154 per person if shared 3 ways
+
+### Trends (8 quarters, Sep 2024 to Jun 2026)
+- Adelaide CBD 1-bed flat leases peak in Sep and Mar quarters (1,500 to 2,400) and drop in Dec and Jun (540 to 815). Likely matches uni semester starts
+- CBD 1-bed rent rose about 5 to 17% year on year, depending on quarter
+
+### Single quarter (Apr-Jun 2026)
 - 640 suburbs in total: 378 Metro, 262 Country
 - 257 suburbs (40%) had 5 or fewer new leases
 - Only 211 suburbs had any 1-bed flat leases (162 Metro, 49 Country)
-- Of those 211, 187 were low sample. Only 24 suburbs had more than 5 one-bed flat leases, so most 1-bed prices are unreliable from one quarter alone
+- Of those 211, 187 were low sample. Only 24 suburbs had more than 5 one-bed flat leases, so one quarter alone is unreliable
 - Adelaide CBD total median ($520) is lower than its 2-bed flat median ($650) because small flats dominate the mix. Total median can mislead when comparing suburbs
-- Adelaide CBD: 815 one-bed flat leases, median $500. Explains why its total median is low
-- Bowden: 25 one-bed flat leases, median $374.50. Reliable and much cheaper than the CBD nearby
-- Adelaide CBD 1-bed flat leases peak in Sep and Mar quarters (1,500 to 2,400) and drop in Dec and Jun (540 to 815). Likely matches uni semester starts
-- CBD 1-bed rent rose about 5 to 17% year on year, depending on quarter
 
 ## Data quirks
 - Each quarter is a separate Excel file with 4 sheets: Suburb, PC, Region, SLA. Only Suburb is used
@@ -41,3 +46,4 @@ Data: Apr-Jun 2026 quarter
 - Is 8 quarters enough to make 1-bed flat prices reliable?
 - What minimum number of leases should a suburb need to appear in rankings?
 - Why are CBD 1-bed medians lower in busy quarters?
+- How does rent compare with distance to uni campuses? Cheap northern suburbs are far from the city

@@ -55,3 +55,8 @@
 - SELECT, FROM, WHERE, GROUP BY, ORDER BY, LIMIT
 - `COUNT(*)` and `AS` to name results
 - Text in SQL uses single quotes
+
+## 2026-10-06
+- Check SQL results by hand against numbers you already have
+- A query can run fine and still answer the wrong question. Reread WHERE against the question
+- One quarter can mislead. A full year gives a more reliable picture
