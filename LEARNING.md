@@ -60,3 +60,8 @@
 - Check SQL results by hand against numbers you already have
 - A query can run fine and still answer the wrong question. Reread WHERE against the question
 - One quarter can mislead. A full year gives a more reliable picture
+
+## 2026-10-12
+- Always check the match rate after a join. Silent drops give wrong answers with no error
+- Postcodes as TEXT keep leading zeros (0872 stays 0872)
+- Unmatched names come from punctuation, cut-off text, and spelling differences

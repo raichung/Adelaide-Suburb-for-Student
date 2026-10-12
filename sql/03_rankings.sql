@@ -15,6 +15,7 @@ HAVING SUM(leases) >= 20
 ORDER BY avg_rent
 LIMIT 10;
 
+--PRACTICE:
 -- cheapest Metro 1-bed flats over the last year
 -- only suburbs with 20+ known leases
 SELECT

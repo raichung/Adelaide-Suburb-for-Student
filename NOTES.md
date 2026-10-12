@@ -17,6 +17,7 @@
 - Only 211 suburbs had any 1-bed flat leases (162 Metro, 49 Country)
 - Of those 211, 187 were low sample. Only 24 suburbs had more than 5 one-bed flat leases, so one quarter alone is unreliable
 - Adelaide CBD total median ($520) is lower than its 2-bed flat median ($650) because small flats dominate the mix. Total median can mislead when comparing suburbs
+- 988 different suburbs appear across 8 quarters. 979 (99%) matched to a location on first try
 
 ## Data quirks
 - Each quarter is a separate Excel file with 4 sheets: Suburb, PC, Region, SLA. Only Suburb is used
@@ -27,6 +28,9 @@
 - "Metro" and "Country" section rows, plus "Metro Total", "Country Total" and "Grand Total" rows, are mixed in with suburbs
 - Blank median (NaN) means no new leases of that type, not $0 rent
 - Count columns have dtype `object` because they mix numbers and `*`
+- Suburb boundary names are in CAPITALS, rent names are Title Case. Joined with UPPER() on both sides
+- Rent suburb names are cut at 30 characters in some cases (e.g. "Flaxman Valley (Mount Pleasan")
+- Rent names drop apostrophes ("O Halloran Hill" vs official "O'Halloran Hill")
 
 ## Decisions
 - Named all 27 columns by hand instead of parsing the merged header. Added asserts so the script stops if the layout changes
@@ -47,3 +51,4 @@
 - What minimum number of leases should a suburb need to appear in rankings?
 - Why are CBD 1-bed medians lower in busy quarters?
 - How does rent compare with distance to uni campuses? Cheap northern suburbs are far from the city
+- 9 rent suburbs don't match a location. Fix punctuation, cut-off names and spelling next
