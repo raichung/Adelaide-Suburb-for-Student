@@ -2,6 +2,9 @@
 
 ## Findings
 
+### Data coverage
+- 988 different suburbs appear across 8 quarters. 987 (99.9%) matched to a location after fixing names. Only Willsden is unmatched
+
 ### Last year rankings (Jul 2025 to Jun 2026, suburbs with 20+ leases)
 - Cheapest reliable Metro 1-bed flat: Prospect ($366, 63 leases). Tonsley is cheaper ($286) but only 21 leases
 - Adelaide CBD 1-bed: $438 over the year (4,483 leases), cheaper than Bowden ($450). One quarter alone suggested the opposite
@@ -17,38 +20,60 @@
 - Only 211 suburbs had any 1-bed flat leases (162 Metro, 49 Country)
 - Of those 211, 187 were low sample. Only 24 suburbs had more than 5 one-bed flat leases, so one quarter alone is unreliable
 - Adelaide CBD total median ($520) is lower than its 2-bed flat median ($650) because small flats dominate the mix. Total median can mislead when comparing suburbs
-- 988 different suburbs appear across 8 quarters. 979 (99%) matched to a location on first try
 
 ## Data quirks
+
+### Rent data
 - Each quarter is a separate Excel file with 4 sheets: Suburb, PC, Region, SLA. Only Suburb is used
 - Rows above the header are titles and notes. Header is split across 3 rows (dwelling type, bedrooms, Count/Median)
 - Header row moves between quarters: row 12 in older files, row 14 in 2026-06. The code finds it by searching for "Flats/Units"
 - Excel creates hidden lock files (`~$...xlsx`) when a file is open. The code skips them
 - `*` in a count column means 1 to 5 leases, hidden for privacy. The median is still shown
+- Lease counts appear rounded to the nearest 5 (see note 3 in each file). Treat them as approximate
 - "Metro" and "Country" section rows, plus "Metro Total", "Country Total" and "Grand Total" rows, are mixed in with suburbs
 - Blank median (NaN) means no new leases of that type, not $0 rent
 - Count columns have dtype `object` because they mix numbers and `*`
+
+### Joining rent to suburb locations
 - Suburb boundary names are in CAPITALS, rent names are Title Case. Joined with UPPER() on both sides
 - Rent suburb names are cut at 30 characters in some cases (e.g. "Flaxman Valley (Mount Pleasan")
 - Rent names drop apostrophes ("O Halloran Hill" vs official "O'Halloran Hill")
+- "Wyne Vale" in the rent data is a typo for Wynn Vale
+- "Brownlow Via Kingscote" matched to BROWNLOW KI (Kangaroo Island, 5223), not mainland BROWNLOW (5374)
+- "Red Banks" matched to REDBANKS (5502). Judgement call, same name written as one word
+- Willsden has no official match. Left unmatched
+- If you rebuild the suburbs table, drop the `rent_geo` view first, since it depends on it
 
 ## Decisions
+
+### Cleaning
 - Named all 27 columns by hand instead of parsing the merged header. Added asserts so the script stops if the layout changes
+- Find the header row by searching, not by fixed row number, so layout changes don't break the script
 - Tagged each suburb as Metro or Country using forward fill
-- Flag low-sample medians instead of deleting them
-- Compare like with like (e.g. 2-bed flat vs 2-bed flat) rather than total median
 - Reshaped wide (27 columns) to long format: one row per suburb + dwelling + bedrooms
 - Dropped "other" dwelling and "total" columns. Other is rare, and total median mixes property types
 - Created `low_sample` flag before converting counts to numbers, so the `*` information is kept
 - Wrapped cleaning in a function and ran it over all 8 quarters. Output saved to `data/clean/rent_long.csv`
-- Find the header row by searching, not by fixed row number, so layout changes don't break the script
 - Leases stored as pandas `Int64` (whole numbers that allow blanks) so PostgreSQL accepts them as INTEGER
+
+### Database
 - Loaded clean CSV into PostgreSQL table `rent` (database `adelaide_rent`)
 - `median_rent` stored as NUMERIC(7, 2) for exact money values
+- Suburb locations from SA Gov suburb boundaries (GDA2020 version, newer official coordinates)
+- Centre point of each suburb calculated on a flat SA map (EPSG 3107), then converted to lat/lon
+- Raw boundary file not committed (too big). Only the small `data/clean/suburbs.csv` is
+- Fixed unmatched suburb names with a hand-made lookup table (`data/manual/suburb_fixes.csv`). Kept in `data/manual/` to show it was typed by a person
+- Saved the rent + location join as a view, `rent_geo`, so analysis queries stay short
+
+### Analysis
+- Flag low-sample medians instead of deleting them
+- Compare like with like (e.g. 2-bed flat vs 2-bed flat) rather than total median
+- Rankings use the last 4 quarters (one full year) to avoid seasonal bias
+- Only suburbs with 20+ known leases in that year are ranked
+- Combined quarterly medians with a lease-weighted average. It's an estimate, not a true median, since we only have summary data
 
 ## Open questions
 - Is 8 quarters enough to make 1-bed flat prices reliable?
-- What minimum number of leases should a suburb need to appear in rankings?
+- Is 20 leases the right minimum for rankings?
 - Why are CBD 1-bed medians lower in busy quarters?
 - How does rent compare with distance to uni campuses? Cheap northern suburbs are far from the city
-- 9 rent suburbs don't match a location. Fix punctuation, cut-off names and spelling next

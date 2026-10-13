@@ -22,6 +22,10 @@ clean.py         clean all quarters into one long table
 data/clean/rent_long.csv   combined clean data
 sql/01_create_table.sql    create the rent table
 sql/02_first_queries.sql   first SQL checks and queries
+data/manual/suburb_fixes.csv   hand-made fixes for suburb names
+sql/06_find_names.sql          search for official suburb names
+sql/07_suburb_fixes.sql        load the name fixes
+sql/08_rent_geo_view.sql       rent joined with locations (view)
 ```
 
 ## Data source

@@ -65,3 +65,13 @@
 - Always check the match rate after a join. Silent drops give wrong answers with no error
 - Postcodes as TEXT keep leading zeros (0872 stays 0872)
 - Unmatched names come from punctuation, cut-off text, and spelling differences
+
+## 2026-10-13
+- `ILIKE '%text%'` finds partial matches, ignoring capitals
+- Lookup (crosswalk) table to translate messy names into official ones
+- `COALESCE(a, b)` uses a, or b if a is blank
+- You can chain several JOINs
+- A view is a saved query. No data copied
+- Always check row count after a join. Duplicate keys secretly multiply rows
+- `COUNT(...) FILTER (WHERE ...)` counts only some rows
+- Pick matches carefully. Two places can share a name (Brownlow vs Brownlow KI)
