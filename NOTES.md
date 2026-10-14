@@ -9,6 +9,9 @@
 - Cheapest reliable Metro 1-bed flat: Prospect ($366, 63 leases). Tonsley is cheaper ($286) but only 21 leases
 - Adelaide CBD 1-bed: $438 over the year (4,483 leases), cheaper than Bowden ($450). One quarter alone suggested the opposite
 - Cheapest Metro 3-bed houses are all in the Elizabeth area ($462 to $510), about $154 per person if shared 3 ways
+- Within 5 km of Flinders, the only 1-bed flat result is Tonsley, which is unreliable. No trustworthy 1-bed price close to Flinders
+- 2-bed flats within 10 km of Adelaide Uni: Brooklyn Park is the most reliable pick ($461, 124 leases, $450 to $470). Collinswood is closest (3.4 km, $469)
+- Henley Beach South looks cheapest for 2-bed ($383) but ranges $240 to $510. Unreliable
 
 ### Trends (8 quarters, Sep 2024 to Jun 2026)
 - Adelaide CBD 1-bed flat leases peak in Sep and Mar quarters (1,500 to 2,400) and drop in Dec and Jun (540 to 815). Likely matches uni semester starts
@@ -77,3 +80,4 @@
 - Is 20 leases the right minimum for rankings?
 - Why are CBD 1-bed medians lower in busy quarters?
 - How does rent compare with distance to uni campuses? Cheap northern suburbs are far from the city
+- Should rankings automatically hide suburbs where highest minus lowest is over $100?

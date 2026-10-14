@@ -75,3 +75,4 @@
 - Always check row count after a join. Duplicate keys secretly multiply rows
 - `COUNT(...) FILTER (WHERE ...)` counts only some rows
 - Pick matches carefully. Two places can share a name (Brownlow vs Brownlow KI)
+- Sorting by cheapest pulls the noisiest suburbs to the top. Always check the range
