@@ -76,3 +76,11 @@
 - `COUNT(...) FILTER (WHERE ...)` counts only some rows
 - Pick matches carefully. Two places can share a name (Brownlow vs Brownlow KI)
 - Sorting by cheapest pulls the noisiest suburbs to the top. Always check the range
+
+## 2026-10-16
+- Turned a copied CTE into a view, `rent_distance`, for all campuses
+- Check a new shortcut against an answer you already have
+- `IN ('a', 'b')` is short for several ORs
+- `CASE col WHEN 'a' THEN 1 ... END` turns values into other values
+- GROUP BY two columns keeps combinations separate
+- ORDER BY can use a name created in SELECT

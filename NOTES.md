@@ -12,6 +12,10 @@
 - Within 5 km of Flinders, the only 1-bed flat result is Tonsley, which is unreliable. No trustworthy 1-bed price close to Flinders
 - 2-bed flats within 10 km of Adelaide Uni: Brooklyn Park is the most reliable pick ($461, 124 leases, $450 to $470). Collinswood is closest (3.4 km, $469)
 - Henley Beach South looks cheapest for 2-bed ($383) but ranges $240 to $510. Unreliable
+- Near Flinders (within 5 km), a room in a share house costs about $209 to $221 a week vs $390 for the cheapest reliable 1-bed flat (6.4 km away). About $170 a week, or $8,800 a year, cheaper
+- Best share house picks near Flinders: Mitchell Park (1.7 km, $220/room, 123 leases), Sturt (1.6 km, $219), Marion (2.1 km, $209)
+- Flagstaff Hill 4-bed is cheapest per room ($172), possibly less since 4br means 4 or more
+- Per-room costs near Flinders are very consistent ($209 to $221). Housing type matters more than suburb
 
 ### Trends (8 quarters, Sep 2024 to Jun 2026)
 - Adelaide CBD 1-bed flat leases peak in Sep and Mar quarters (1,500 to 2,400) and drop in Dec and Jun (540 to 815). Likely matches uni semester starts
@@ -67,6 +71,8 @@
 - Raw boundary file not committed (too big). Only the small `data/clean/suburbs.csv` is
 - Fixed unmatched suburb names with a hand-made lookup table (`data/manual/suburb_fixes.csv`). Kept in `data/manual/` to show it was typed by a person
 - Saved the rent + location join as a view, `rent_geo`, so analysis queries stay short
+- Distance to every campus saved as a view, `rent_distance` (rent rows × campuses). Pick a campus with WHERE
+- If you rebuild `campuses` or `rent_geo`, drop `rent_distance` first
 
 ### Analysis
 - Flag low-sample medians instead of deleting them
@@ -74,6 +80,7 @@
 - Rankings use the last 4 quarters (one full year) to avoid seasonal bias
 - Only suburbs with 20+ known leases in that year are ranked
 - Combined quarterly medians with a lease-weighted average. It's an estimate, not a true median, since we only have summary data
+- Share house cost per room = house rent ÷ bedrooms. 4br means 4 or more, so per-room cost for 4br is a slight overestimate. Bills not included
 
 ## Open questions
 - Is 8 quarters enough to make 1-bed flat prices reliable?
