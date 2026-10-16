@@ -55,15 +55,32 @@
 - SELECT, FROM, WHERE, GROUP BY, ORDER BY, LIMIT
 - `COUNT(*)` and `AS` to name results
 - Text in SQL uses single quotes
+- `cat file` prints a file in the terminal. Handy to check a file actually saved
+- `\dt` in psql lists tables. "Relation" = table
+- If a step prints nothing when it should, the next error is usually caused by it
 
 ## 2026-10-06
+- Weighted average: bigger groups count more
+- `IS NULL` / `IS NOT NULL`, never `= NULL`
+- WHERE filters rows before grouping, HAVING filters groups after
+- Clause order: SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY, LIMIT
+- `ROUND(value, 0)`
+- Text dates in YYYY-MM format sort correctly
 - Check SQL results by hand against numbers you already have
 - A query can run fine and still answer the wrong question. Reread WHERE against the question
 - One quarter can mislead. A full year gives a more reliable picture
 
 ## 2026-10-12
+- GeoJSON stores shapes. geopandas reads it like pandas, plus a geometry column
+- CRS = coordinate system. Measure on a flat map (metres), then convert back to lat/lon
+- `.centroid` finds a shape's centre
+- Store postcodes as TEXT. If you wouldn't add it up, it's text. Leading zeros stay (0872)
+- Table nicknames: `FROM rent r`
+- JOIN keeps matches only. LEFT JOIN keeps everything from the left table
+- `UPPER()` to compare text without caring about capitals
+- `COUNT(DISTINCT col)` counts unique values
+- LEFT JOIN + `WHERE right.col IS NULL` finds rows with no match
 - Always check the match rate after a join. Silent drops give wrong answers with no error
-- Postcodes as TEXT keep leading zeros (0872 stays 0872)
 - Unmatched names come from punctuation, cut-off text, and spelling differences
 
 ## 2026-10-13
@@ -75,7 +92,24 @@
 - Always check row count after a join. Duplicate keys secretly multiply rows
 - `COUNT(...) FILTER (WHERE ...)` counts only some rows
 - Pick matches carefully. Two places can share a name (Brownlow vs Brownlow KI)
+
+## 2026-10-14
+- CSV rules: no comma after the last value, no spaces around commas
+- Distance with Pythagoras: √(south² + east²)
+- 1 degree lat ≈ 111 km. 1 degree lon ≈ 91 km in Adelaide
+- `POWER(x, 2)` and `SQRT(x)`
+- CTE: `WITH name AS (...)`, a temporary table inside one query
+- A CTE only exists for the one query it's attached to
+- CROSS JOIN pairs every row with every row
+- Use a CTE when you need to filter on something you calculated
+- `MIN()` to pick a value that's the same for every row in a group
+- SQL has no `print`. In psql use `\echo 'text'`, no semicolon
+- Check outliers quarter by quarter before trusting them
+- An average of very different values can be meaningless
+- Show MIN and MAX next to an average so readers can see stability
 - Sorting by cheapest pulls the noisiest suburbs to the top. Always check the range
+- Correct your own earlier guesses when new data disproves them
+- Copying the same block many times is a sign it should be a view
 
 ## 2026-10-16
 - Turned a copied CTE into a view, `rent_distance`, for all campuses
@@ -84,3 +118,10 @@
 - `CASE col WHEN 'a' THEN 1 ... END` turns values into other values
 - GROUP BY two columns keeps combinations separate
 - ORDER BY can use a name created in SELECT
+- Do heavy maths in the database, keep the dashboard simple
+- `<>` means not equal
+- A comparison like `SUM(x) >= 20` makes a True/False column
+- `\copy (SELECT ...) TO 'file.csv'` exports a query result
+- `mkdir -p` makes a folder, no error if it exists
+- Label data instead of hiding it, let the user filter
+- Row count should divide by the number of campuses. Quick structure check
