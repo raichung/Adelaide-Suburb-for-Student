@@ -138,3 +138,12 @@
 - Power BI sums numbers by default. For rents and prices, switch to Minimum or Average
 - Check a new tool's output against numbers you already trust
 - `.DS_Store` is a hidden macOS file. Add it to `.gitignore`
+- Slicers let users filter the report themselves
+- Slicer styles: Dropdown, Tile, Less than or equal to. Set in Format → Slicer settings → Options
+- Single select stops users picking more than one option
+- Hold Ctrl to pick several options in a slicer
+- Slicers filter each other. Options with no matching data disappear
+- Tile slicers have no column setting. Resize the box to change how tiles wrap
+- Table visual: set number columns to Don't summarize
+- Clicking a bar filters the other visuals on the page (cross-filtering)
+- Rename visual titles in Format → General → Title, and fields by double-clicking them in the field box

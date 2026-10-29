@@ -24,10 +24,13 @@ Near Flinders University
 - Per-room costs are very consistent ($209 to $221). Housing type matters more than suburb
 - Power BI chart of 3-bed share houses within 5 km matches the SQL: 22 suburbs, Flagstaff Hill and Marion cheapest ($209), Brighton dearest ($251)
 - Tonsley 3-bed houses are stable and reliable. Only its 1-bed flats are noisy
+- Including 4-bed houses, Flagstaff Hill drops to $172 per room, the cheapest near Flinders
 
 Near Adelaide Uni North Terrace
 - 2-bed flats within 10 km: Brooklyn Park is the most reliable pick ($461, 124 leases, $450 to $470). Collinswood is closest (3.4 km, $469)
 - Henley Beach South looks cheapest for 2-bed ($383) but ranges $240 to $510. Unreliable
+- 3-bed share houses within 5 km: 22 reliable suburbs. Cheapest per room: Broadview ($211), Payneham ($212). Dearest: Fullarton ($282)
+- Adelaide CBD 3-bed share house: $240 per room (1.3 km), vs $438 for a CBD 1-bed flat. Sharing saves about $200 a week even in the city
 
 ### Trends (8 quarters, Sep 2024 to Jun 2026)
 - Adelaide CBD 1-bed flat leases peak in Sep and Mar quarters (1,500 to 2,400) and drop in Dec and Jun (540 to 815). Likely matches uni semester starts
@@ -106,6 +109,9 @@ Near Adelaide Uni North Terrace
 - Per room includes 1-bed flats (per room = full rent), so flats and share houses compare in one column
 - Dashboard keeps all suburbs and labels them `reliable` (20+ leases) instead of hiding them. The user filters
 - "All bedrooms" rows left out of the dashboard, since they mix sizes
+- Dashboard uses slicers (campus, housing type, bedrooms, distance, reliable) instead of fixed filters, so users ask their own questions
+- Campus slicer is single select, since distance only makes sense for one campus
+- Bar chart shows the minimum per room, so picking several bedroom sizes shows each suburb's cheapest option
 
 ## Open questions
 - Is 8 quarters enough to make 1-bed flat prices reliable?

@@ -2,13 +2,14 @@
 
 Analysis of SA Government rental bond data to find which Adelaide suburbs give students the best rental value, including distance to uni campuses.
 
-**Status:** in progress (first Power BI chart done, full dashboard next)
+**Status:** in progress (interactive dashboard with slicers done, map and trends next)
 
 ## Key findings so far
 - Near Flinders University, a room in a share house costs about $209 to $221 a week, vs $390 for the cheapest reliable 1-bed flat. That's about $8,800 a year cheaper
 - Best share house picks near Flinders: Mitchell Park, Sturt and Marion, all within about 2 km
 - Adelaide CBD 1-bed flats averaged $438 over the last year, based on 4,483 leases
 - One quarter of data can mislead. Small suburbs swing wildly, so rankings use a full year, 20+ leases, and show the price range
+- Even in the CBD, a room in a 3-bed share house ($240) costs about $200 a week less than a 1-bed flat ($438)
 
 See `NOTES.md` for all findings, data quirks and decisions.
 
