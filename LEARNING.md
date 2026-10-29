@@ -125,3 +125,16 @@
 - `mkdir -p` makes a folder, no error if it exists
 - Label data instead of hiding it, let the user filter
 - Row count should divide by the number of campuses. Quick structure check
+
+
+## 2026-10-29
+- Power BI: Get data → Text/CSV → Transform Data opens Power Query
+- Power Query records every step (Applied Steps) and replays them on new data
+- Column type icons: ABC text, 1.2 decimal, 123 whole number
+- Replace Values to clean text, then change the type
+- Table view shows data, Report view is where charts go
+- Filters on this page apply to every chart on the page. Filters on this visual apply to one
+- Sort a chart from the ... in its top-right corner (hidden until you hover)
+- Power BI sums numbers by default. For rents and prices, switch to Minimum or Average
+- Check a new tool's output against numbers you already trust
+- `.DS_Store` is a hidden macOS file. Add it to `.gitignore`

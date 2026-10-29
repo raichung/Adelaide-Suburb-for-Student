@@ -2,7 +2,7 @@
 
 Analysis of SA Government rental bond data to find which Adelaide suburbs give students the best rental value, including distance to uni campuses.
 
-**Status:** in progress (dashboard data exported, Power BI dashboard next)
+**Status:** in progress (first Power BI chart done, full dashboard next)
 
 ## Key findings so far
 - Near Flinders University, a room in a share house costs about $209 to $221 a week, vs $390 for the cheapest reliable 1-bed flat. That's about $8,800 a year cheaper
@@ -25,6 +25,7 @@ data/manual/suburb_fixes.csv   hand-made fixes for suburb names
 data/manual/campuses.csv       campus locations from Google Maps
 data/dashboard/summary.csv     one row per suburb, campus, dwelling, bedrooms (for Power BI)
 data/dashboard/trends.csv      every quarter with location (for trend charts)
+dashboard/adelaide_rent.pbix   Power BI dashboard (needs Windows to open)
 
 Python pipeline
 clean.py                       clean all quarters into one long table

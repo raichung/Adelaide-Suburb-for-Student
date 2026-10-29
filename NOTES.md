@@ -22,6 +22,8 @@ Near Flinders University
 - Best share house picks: Mitchell Park (1.7 km, $220/room, 123 leases), Sturt (1.6 km, $219), Marion (2.1 km, $209)
 - Flagstaff Hill 4-bed is cheapest per room ($172), possibly less since 4br means 4 or more
 - Per-room costs are very consistent ($209 to $221). Housing type matters more than suburb
+- Power BI chart of 3-bed share houses within 5 km matches the SQL: 22 suburbs, Flagstaff Hill and Marion cheapest ($209), Brighton dearest ($251)
+- Tonsley 3-bed houses are stable and reliable. Only its 1-bed flats are noisy
 
 Near Adelaide Uni North Terrace
 - 2-bed flats within 10 km: Brooklyn Park is the most reliable pick ($461, 124 leases, $450 to $470). Collinswood is closest (3.4 km, $469)
@@ -51,6 +53,7 @@ Near Adelaide Uni North Terrace
 - Blank median (NaN) means no new leases of that type, not $0 rent
 - Count columns have dtype `object` because they mix numbers and `*`
 - Tonsley 1-bed medians include $89.80 a week, far below market. Possibly subsidised or student housing, can't tell from this data
+- PostgreSQL exports booleans as `t` and `f`. Power BI needs them replaced with TRUE and FALSE before changing the type
 
 ### Joining rent to suburb locations
 - Suburb boundary names are in CAPITALS, rent names are Title Case. Joined with UPPER() on both sides
@@ -88,6 +91,7 @@ Near Adelaide Uni North Terrace
 - Saved the rent + location join as a view, `rent_geo`, so analysis queries stay short
 - Distance to every campus saved as a view, `rent_distance` (rent rows × campuses). Pick a campus with WHERE
 - Dashboard data built as a view, `dashboard_summary`, then exported to `data/dashboard/`. Power BI only draws, it doesn't calculate
+- Dashboard built in Power BI Desktop on Windows from `data/dashboard/summary.csv`. Saved as `dashboard/adelaide_rent.pbix`
 
 ### Analysis
 - Flag low-sample medians instead of deleting them
